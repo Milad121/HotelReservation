@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <meta th:insert="fragments/head :: metas" th:remove="tag"/>
+  <title>Customer page</title>
+  <style th:insert="fragments/head :: styles" th:remove="tag"/>
+  <script th:insert="fragments/head :: scripts" th:remove="tag"/>
+  <script src="js/roomstobecleaned.js"></script>
+
+  <script>
+        $( document ).ready(function() {
+            console.log( "initializing" );
+            init();
+        });
+    </script>
+
+</head>
+<body>
+<div th:insert="/fragments/header :: header"></div>
+<li></li>
+<div th:insert="/fragments/menu :: menu"></div>
+<li></li>
+<li></li>
+
+
+<div class="container">
+  <table id="roomsToBeCleaned" class="display mx-auto">
+  </table>
+</div>
+<div class=“row”>
+  <div class="w-50 mx-auto">
+    <button sec:authorize ="hasAnyRole('CLEAN')" type="button" class="btn btn-primary" id="saveCleanedRooms">Save</button>
+  </div>
+</div>
+
+<li></li>
+<li></li>
+
+<div th:insert="/fragments/footer :: footer"></div>
+
+<script src="js/translate.js"></script>
+</body>
+</html>
